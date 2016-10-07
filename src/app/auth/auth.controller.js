@@ -4,6 +4,15 @@ export class AuthController {
         'ngInject';
         this.$auth = $auth;
     }
+
+    login() {
+        var vm = this;
+        this.$auth.login(this.login.user)
+        .then(function(token) {
+            //console.log(token);
+            vm.$auth.setToken(token);
+        });
+    } 
     
     register() {
         var vm = this;
